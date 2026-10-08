@@ -66,5 +66,38 @@ En este caso la esfera es un dynamic trigger collider, por lo que se verá afect
 
 # Ejercicios de Script
 ## Ejercicio 1
+El ejercicio pide mover al personaje mediante rigidbody. Para ello creo un personaje, que va a ser un GameObject capsula y le añado un rigidbody kinetic para moverlo con libertad. 
 
-Ejercicio 1: Crea un personaje,controla su desplazamiento con las teclas WASD o las flechas, el movimiento debe realizarse usando un Rigidbody, pero manteniendo el control total.
+Para realizar el movimiento utilizo el método `Rigidbody.MovePosition()` que recibe la posición exacta a la que se debe mover el personaje, esto implica que no sirve solo con calcular el vector de dirección:
+1. Se calcula el vector dirección mediante GetAxis() y se normaliza
+2. Se multiplica por la velocidad y Time.FixedDeltaTime para que el movimiento se ajuste al tiempo trascurrido realmente
+3. Se llama a la función con el vector resultante de sumar la posición actual de rigidbody (no el de transform) y el desplazamiento total calculado arriba.
+
+Añadí un atributo de velocidad para probar el movimiento
+
+### Prueba
+
+![gif](EjerciciosScripts/Ejercicio1/gif.gif)
+
+## Ejercicio 2
+Para este ejercicio creé 3 cubos colocados de forma apilada a diferentes alturas para que al iniciar el juego caigan colisionando entre ellos. Todos los cubos tienen un dynamic collider y coloqué un plano static collider para que no cayeran al vacio por la gravedad.
+
+El código está escrito en la función `OnCollisionEnter()`
+
+### Prueba
+
+![gif](EjerciciosScripts/Ejercicio2/gif.gif)
+
+## Ejercicio 3
+Se pide crear dos zonas mediante trigger colliders.
+
+1. Una de ellas debe cambiar el color del objeto con el que detecta la interación en el momento de entrada y reestablecerlo en la salida. Para ello utilizo `OnTriggerEnter()`, `OnTriggerExit()` y guardo en una variable el color previo al cambio para restaurarlo. 
+Sin embargo, guardar solamente un color haría que si dos objetos entran en la zona antes de que el otro salga solo guardaría un color y al salir reestablecería el color incorrecto. Para evitarlo, guardo todos los renderes y colores en un diccionario.
+
+2. El otro debe aumentar una variable daño mientras esté el objeto en la zona. Para ello añado una variable al objeto (en el script de movimiento) y la aumento desde `OnTriggerStay()`. Para que el daño no aumente de forma desproporcionada al tiempo transcurrido le añado `Time.FixedDeltaTime`
+
+### Prueba
+
+![gif](EjerciciosScripts/Ejercicio3/gif.gif)
+
+## Ejercicio 4
