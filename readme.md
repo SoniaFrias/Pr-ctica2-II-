@@ -38,17 +38,17 @@ Todos son elementos físicos, se ven afectados por la gravedad y caen.
 ![ejercicio4](EjerciciosFísicas/ejercicio4.gif)
 
 ## Situación 5
-Es el mismo caso que el anterior, pero aumentando la masa de la esfera. Dado que es caida libre, la aceleración debida a la gravedad es constante e independiente de la masa, por lo el tiempo de caída son los mismos y no hay diferencia visual.
+En este caso la esfera choca moviendo ligeramente al cubo
 
 ![ejercicio5](EjerciciosFísicas/ejercicio5.gif)
 
 ## Situación 6
-De nuevo se aumenta la masa de la esfera y visualmente no hay diferencias. 
+De nuevo se aumenta la masa de la esfera, al chocar contra el cubo la fuerza es mayor. 
 
 ![ejercicio6](EjerciciosFísicas/ejercicio6.gif)
 
 ## Situación 7
-????
+Se le añade un material a la esfera para que tenga fricción
 
 ![ejercicio7](EjerciciosFísicas/ejercicio7.gif)
 
@@ -101,3 +101,26 @@ Sin embargo, guardar solamente un color haría que si dos objetos entran en la z
 ![gif](EjerciciosScripts/Ejercicio3/gif.gif)
 
 ## Ejercicio 4
+
+Para este ejercicio se crearon tres capas personalizadas en el proyecto: `Jugador`, `Enemigo` y `Recolectable`, asignando cada objeto de la escena a su capa correspondiente. El jugador cuenta con Collider y Rigidbody para interactuar con el entorno, el enemigo dispone de un Collider y Rigidbody y el recolectable tiene su Collider configurado en modo `Is Trigger` para permitir la detección por traspaso sin colisión física. 
+
+Finalmente, en la **Layer Collision Matrix** (*Project Settings > Physics*), se filtraron las interacciones desmarcando todos los cruces innecesarios, de modo que los enemigos únicamente colisionen con el jugador y los recolectables solo interactúen con este a través de eventos de trigger.
+
+### Prueba
+
+![gif](EjerciciosScripts/Ejercicio4/gif.gif)
+
+## Ejercicio 5
+En este ejecicio se crean 3 materiales ajustando su dynamic friction, static friction y bounciness para que sea resbaladizo, rugoso y que rebote. Vemos como al aplicarles una fuerza al pulsa la tecla X la esfera resbaladiza avanza más rápido pues no tiene resistencia que se le oponga mientras que que el rugoso tarda más. En el caso del material que rebota se observa como al caer por la gravedad rebota.
+
+### Prueba
+
+![gif](EjerciciosScripts/Ejercicio5/gif.gif)
+
+## Ejercicio 6
+
+
+### Prueba
+
+![gif](EjerciciosScripts/Ejercicio6/gif.gif)
+
