@@ -102,13 +102,17 @@ Sin embargo, guardar solamente un color haría que si dos objetos entran en la z
 
 ## Ejercicio 4
 
-Para este ejercicio se crearon tres capas personalizadas en el proyecto: `Jugador`, `Enemigo` y `Recolectable`, asignando cada objeto de la escena a su capa correspondiente. El jugador cuenta con Collider y Rigidbody para interactuar con el entorno, el enemigo dispone de un Collider y Rigidbody y el recolectable tiene su Collider configurado en modo `Is Trigger` para permitir la detección por traspaso sin colisión física. 
+Para este ejercicio se crearon tres capas personalizadas en el proyecto: `Jugador`, `Enemigo` y `Recolectable`, asignando cada objeto de la escena a su capa correspondiente. El jugador cuenta con Collider y Rigidbody cinemático para interactuar con el entorno, el enemigo dispone de un Collider y Rigidbody y el recolectable tiene su Collider configurado en modo `Is Trigger` para permitir la detección por traspaso sin colisión física. 
 
-Finalmente, en la **Layer Collision Matrix** (*Project Settings > Physics*), se filtraron las interacciones desmarcando todos los cruces innecesarios, de modo que los enemigos únicamente colisionen con el jugador y los recolectables solo interactúen con este a través de eventos de trigger.
+En la **Layer Collision Matrix** (*Project Settings > Physics*), se filtraron las interacciones desmarcando todos los cruces innecesarios, de modo que los enemigos únicamente colisionen con el jugador y los recolectables solo interactúen con este a través de eventos de trigger.
+
+Para ver que se cumple lo establecido en la matriz, creé unos scripts que imprimen un mensaje por consola cuando el enemigo y el recolectable detectan colisión. Como se puede observar en la prueba, cuando el jugador choca contra el enemigo se muestra un mensaje, pero cuando el enemigo atraviesa el recolectable no se muestra ningún mensaje.
 
 ### Prueba
-
+Configuración
 ![gif](EjerciciosScripts/Ejercicio4/gif.gif)
+Prueba
+![gif2](EjerciciosScripts/Ejercicio4/gif2.gif)
 
 ## Ejercicio 5
 En este ejecicio se crean 3 materiales ajustando su dynamic friction, static friction y bounciness para que sea resbaladizo, rugoso y que rebote. Vemos como al aplicarles una fuerza al pulsa la tecla X la esfera resbaladiza avanza más rápido pues no tiene resistencia que se le oponga mientras que que el rugoso tarda más. En el caso del material que rebota se observa como al caer por la gravedad rebota.
