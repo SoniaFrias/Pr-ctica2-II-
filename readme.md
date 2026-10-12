@@ -122,9 +122,14 @@ En este ejecicio se crean 3 materiales ajustando su dynamic friction, static fri
 ![gif](EjerciciosScripts/Ejercicio5/gif.gif)
 
 ## Ejercicio 6
+Se colocan en línea de tres elementos (Esfera, Cubo y Cilindro) que únicamente tienen Collider (sin componente Rigidbody). La esfera se desplaza hacia el cilindro y, al entrar en contacto con el cubo intermedio, altera el material visual de este último.
 
+En el motor de físicas de Unity, dos Static Colliders no generan eventos OnCollisionEnter ni OnTriggerEnter entre sí, dado que las restricciones del enunciado incluyen no usar rigidbody hago lo siguiente:
+
+1. La esfera calcula el vector de dirección horizontal hacia el cilindro mediante `(target - origin).normalized` y se desplaza usando `transform.Translate(..., Space.World)`.
+2. En cada frame se evalúa la intersección espacial entre las cajas delimitadoras de ambos colliders mediante `cubeCollider.bounds.Intersects(sphereCollider.bounds)`
+3. Si intersectan, se accede al componente `Renderer` del cubo y se le asigna el nuevo material visual.
 
 ### Prueba
-
 ![gif](EjerciciosScripts/Ejercicio6/gif.gif)
 
